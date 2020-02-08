@@ -1,0 +1,28 @@
+package study.hw;
+
+import java.util.Scanner;
+
+public class Solution_D3_1217_°ÅµìÁ¦°ö {
+
+	static int T, N, M;
+	static int res;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		T = sc.nextInt();
+		N = sc.nextInt();
+		M = sc.nextInt();
+		recursive(N, N, M);
+		System.out.println(res);
+	}
+
+	public static void recursive(int num, int n, int m) {
+		if (m == 0) {
+			res = num;
+			return;
+		}
+		recursive(num*n,n, m - 1);
+	}
+
+}

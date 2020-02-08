@@ -1,0 +1,59 @@
+package study.hw;
+
+import java.util.Scanner;
+
+public class Solution_D4_1868_파핑파핑지뢰찾기 {
+
+	static int T, N;
+	static char[][] input;
+	static int[][] map;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		T = sc.nextInt();
+		for (int t = 1; t <= T; t++) {
+			N = sc.nextInt();
+			input = new char[N][N];
+			map = new int[N][N];
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					String s = sc.next();
+					input[i] = s.toCharArray();
+				}
+			}
+			int[] dy = { -1, -1, -1, 0, 1, 1, 1, 0 };
+			int[] dx = { -1, 0, 1, 1, 1, 0, -1, -1 };
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					
+					if (input[i][j] == '*') {
+						map[i][j] = -1;
+					} else {
+						int cnt = 0;
+						int y = i;
+						int x = j;
+						for (int d = 0; d < 8; d++) {
+							int ny = y + dy[d];
+							int nx = x + dx[d];
+							if (ny < 0 || nx < 0 || ny >= N || nx >= N)
+								continue;
+							if(input[ny][nx]=='*'){
+								cnt++;
+							}
+
+						}
+						map[i][j]=cnt;
+					}
+				}
+			}
+			for(int i=0;i<N;i++){
+				for(int j=0;j<N;j++){
+					System.out.print(map[i][j]+" ");
+				}
+				System.out.println();
+			}
+		}
+	}
+
+}

@@ -1,0 +1,49 @@
+package study.hw;
+
+import java.util.Scanner;
+
+public class Solution_D5_1247_최적경로 {
+
+	static int T, N;
+	static int[] cusx, cusy, sel;
+	static int hx, hy, cx, cy;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		T = sc.nextInt();
+		for (int t = 1; t <= T; t++) {
+
+			N = sc.nextInt();
+			cusx = new int[N];
+			cusy = new int[N];
+			sel = new int[N];
+			
+			cx = sc.nextInt();
+			cy = sc.nextInt();
+			hx = sc.nextInt();
+			hy = sc.nextInt();
+			for (int i = 0; i < N; i++) {
+				cusx[i] = sc.nextInt();
+				cusy[i] = sc.nextInt();
+			}
+			
+			
+			
+
+		}
+	}
+	
+	public static void perm(int flag, int cnt){
+		if(cnt==N){
+			return;
+		}
+		for(int i=0;i<N;i++){
+			if((flag & 1<<i) == 0){
+				sel[cnt] = i;
+				perm(flag | 1<<i,cnt+1);
+			}
+		}
+	}
+
+}

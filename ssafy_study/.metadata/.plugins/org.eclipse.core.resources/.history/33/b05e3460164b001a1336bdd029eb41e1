@@ -1,0 +1,15 @@
+package study0201;
+
+public class Solution_D4_1226_¹Ì·Î1 {
+
+	public static void main(String[] args) {
+		int num = 2;
+		String s = "s";
+		ss(s);
+		System.out.println(s);
+	}
+	public static void ss(String a){
+		a += "add";
+	}
+
+}

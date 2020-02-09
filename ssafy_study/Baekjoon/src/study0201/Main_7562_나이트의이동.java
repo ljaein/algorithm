@@ -29,12 +29,13 @@ public class Main_7562_나이트의이동 {
 			boolean find = false;
 			Queue<Point> q = new LinkedList<>();
 			q.add(new Point(cy, cx));
+			visited[cy][cx]=true;
+			int num = 1;
 			w: while (!q.isEmpty()) {
 				int qsize = q.size();
 				for (int s = 0; s < qsize; s++) {
 					Point p = q.poll();
-
-					visited[p.y][p.x] = true;
+					//visited[p.y][p.x] = true;
 
 					for (int i = 0; i < 8; i++) {
 						int ny = p.y + dy[i];
@@ -44,12 +45,12 @@ public class Main_7562_나이트의이동 {
 						if (visited[ny][nx])
 							continue;
 						if (ny == ay && nx == ax) {
-							System.out.println("-------------------------");
 							find = true;
 							System.out.println(cnt);
 							break w;
 						}
 						q.add(new Point(ny, nx));
+						visited[ny][nx]=true; //********************************************* 넣을때마다 방문 표시
 					}
 				}
 				cnt++;

@@ -3,7 +3,7 @@ package study0201;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Solution_D3_1234_��й�ȣ {
+public class Solution_D3_1234_비밀번호 {
 
 	static int N;
 	static String[] s;

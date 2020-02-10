@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Solution_D5_1247_ÃÖÀû°æ·Î {
+public class Solution_D5_1247_ìµœì ê²½ë¡œ{
 
 	static int T, N;
 	static int[] cusx, cusy, sel;

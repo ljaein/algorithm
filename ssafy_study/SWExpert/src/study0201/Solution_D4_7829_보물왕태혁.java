@@ -3,7 +3,7 @@ package study0201;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Solution_D4_7829_º¸¹°¿ÕÅÂÇõ {
+public class Solution_D4_7829_ë³´ë¬¼ì™•íƒœí˜ {
 
 	static int T, P, N;
 	static int[] arr;

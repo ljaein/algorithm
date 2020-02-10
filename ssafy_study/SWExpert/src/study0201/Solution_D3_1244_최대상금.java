@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Solution_D3_1244_ÃÖ´ë»ó±İ {
+public class Solution_D3_1244_ìµœëŒ€ìƒê¸ˆ {
 	static int n;
 	static int result = 0;
 	static char[] num;

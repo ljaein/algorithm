@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Main_2567_»öÁ¾ÀÌ2 {
+public class Main_2567_ìƒ‰ì¢…ì´2 {
 
 	static int N, cnt;
 	static int[][] map;

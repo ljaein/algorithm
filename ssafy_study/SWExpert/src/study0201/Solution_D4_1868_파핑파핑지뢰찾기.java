@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Solution_D4_1868_ÆÄÇÎÆÄÇÎÁö·ÚÃ£±â {
+public class Solution_D4_1868_íŒŒí•‘íŒŒí•‘ì§€ë¢°ì°¾ê¸° {
 
 	static int T, N, res;
 	static char[][] input;
@@ -73,7 +73,7 @@ public class Solution_D4_1868_ÆÄÇÎÆÄÇÎÁö·ÚÃ£±â {
 							if (ny < 0 || nx < 0 || ny >= N || nx >= N)
 								continue;
 							if (pop[ny][nx] != 1 && pop[ny][nx] != -1) {
-								pop[ny][nx] = 2; // 0 °¡»ıÀÌ¸¦ 2·Î ¼³Á¤
+								pop[ny][nx] = 2; // 0 ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							}
 
 						}
@@ -83,7 +83,7 @@ public class Solution_D4_1868_ÆÄÇÎÆÄÇÎÁö·ÚÃ£±â {
 
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
-					if (pop[i][j] == 0) // µû·Î Å¬¸¯ÇØ¾ßÇÏ´Â Ä­
+					if (pop[i][j] == 0) // ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½Ï´ï¿½ Ä­
 						res++;
 				}
 			}

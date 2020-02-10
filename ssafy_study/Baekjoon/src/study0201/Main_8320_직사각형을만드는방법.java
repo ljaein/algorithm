@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Main_8320_Á÷»ç°¢ÇüÀ»¸¸µå´Â¹æ¹ı {
+public class Main_8320_ì§ì‚¬ê°í˜•ì„ë§Œë“œëŠ”ë°©ë²• {
 
 	static int N, cnt;
 	public static void main(String[] args) {

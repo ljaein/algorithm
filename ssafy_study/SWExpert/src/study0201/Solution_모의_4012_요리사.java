@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Solution_¸ğÀÇ_4012_¿ä¸®»ç {
+public class Solution_ëª¨ì˜_4012_ìš”ë¦¬ì‚¬ {
 
 	static int T, N, min;
 	static int[][] food;

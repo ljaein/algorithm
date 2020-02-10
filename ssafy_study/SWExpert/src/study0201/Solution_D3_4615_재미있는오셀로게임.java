@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Solution_D3_4615_Àç¹ÌÀÖ´Â¿À¼¿·Î°ÔÀÓ {
+public class Solution_D3_4615_ì¬ë¯¸ìˆëŠ”ì˜¤ì…€ë¡œê²Œì„ {
 
 	static int T, N, M;
 	static int[][] board;
@@ -28,7 +28,7 @@ public class Solution_D3_4615_Àç¹ÌÀÖ´Â¿À¼¿·Î°ÔÀÓ {
 			for (int i = 0; i < M; i++) {
 				int x = sc.nextInt();
 				int y = sc.nextInt();
-				int c = sc.nextInt(); // Èæµ¹ : 1 , ¹éµ¹ : 2
+				int c = sc.nextInt(); // ï¿½æµ¹ : 1 , ï¿½éµ¹ : 2
 				int ec;
 				if (c == 2)
 					ec = 1;

@@ -2,7 +2,7 @@ package study0202;
 
 import java.util.Scanner;
 
-public class Solution_D5_7206_¼ıÀÚ°ÔÀÓ {
+public class Solution_D5_7206_ìˆ«ìê²Œì„ {
 
 	static int T, len;
 	static String num;

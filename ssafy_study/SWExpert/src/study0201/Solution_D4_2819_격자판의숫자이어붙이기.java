@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-public class Solution_D4_2819_°İÀÚÆÇÀÇ¼ıÀÚÀÌ¾îºÙÀÌ±â {
+public class Solution_D4_2819_ê²©ìíŒì˜ìˆ«ìì´ì–´ë¶™ì´ê¸° {
 
 	static int T;
 	static int[][] num;

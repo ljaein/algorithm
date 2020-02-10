@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Solution_D4_1226_¹Ì·Î1 {
+public class Solution_D4_1226_ë¯¸ë¡œ1{
 
 	static int T, sy, sx, fy, fx, res;
 	static int[][] map;

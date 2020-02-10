@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Main_2798_ºí·¢Àè {
+public class Main_2798_ë¸”ë™ì­{
 
 	static int N, M, clo, res;
 	static int[] card;

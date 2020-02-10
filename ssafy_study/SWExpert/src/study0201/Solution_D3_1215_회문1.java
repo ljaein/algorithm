@@ -3,7 +3,7 @@ package study0201;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Solution_D3_1215_È¸¹®1 {
+public class Solution_D3_1215_íšŒë¬¸1 {
 
 	static int N, cnt;
 	static char[][] arr;

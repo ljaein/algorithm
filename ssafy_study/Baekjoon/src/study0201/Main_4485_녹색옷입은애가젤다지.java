@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main_4485_³ì»ö¿ÊÀÔÀº¾Ö°¡Á©´ÙÁö {
+public class Main_4485_ë…¹ìƒ‰ì˜·ì…ì€ì• ê°€ì ¤ë‹¤ì§€ {
 
 	static int N, T;
 	static int[][] map, min;

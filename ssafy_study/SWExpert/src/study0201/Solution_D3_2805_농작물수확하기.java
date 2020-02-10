@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Solution_D3_2805_³óÀÛ¹°¼öÈ®ÇÏ±â {
+public class Solution_D3_2805_ë†ì‘ë¬¼ìˆ˜í™•í•˜ê¸°{
 
 	static int T, N;
 	static int[][] arr;

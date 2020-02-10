@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Solution_D3_8016_È¦¼öÇÇ¶ó¹Ìµå {
+public class Solution_D3_8016_í™€ìˆ˜í”¼ë¼ë¯¸ë“œ{
 
 	static long T, N;
 	static long first, last;

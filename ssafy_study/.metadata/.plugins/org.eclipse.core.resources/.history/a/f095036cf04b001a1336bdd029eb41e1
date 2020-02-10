@@ -2,7 +2,7 @@ package study0201;
 
 import java.util.Scanner;
 
-public class Main_1592_ì˜ì‹ì´ì™€ì¹œêµ¬ë“¤ {
+public class Main_1592_¿µ½ÄÀÌ¿ÍÄ£±¸µé {
 
 	static int N, M, L;
 	static int[] ball;
@@ -14,7 +14,7 @@ public class Main_1592_ì˜ì‹ì´ì™€ì¹œêµ¬ë“¤ {
 		L = sc.nextInt();
 		ball = new int[N];
 		int cur = 0;
-		ball[cur]++;
+		ball[cur]++; //1¹øÀÌ °øÀ» ¹ŞÀ½
 		while(!isFin()){
 			if(ball[cur]%2==1){
 				cur +=L;

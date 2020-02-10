@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main_1260_DFSì™€BFS {
+public class Main_1260_DFS¿ÍBFS {
 
 	static int N, M, V, idx;
 	static int[][] map;
@@ -16,7 +16,7 @@ public class Main_1260_DFSì™€BFS {
 		Scanner sc = new Scanner(System.in);
 		N = sc.nextInt();
 		M = sc.nextInt();
-		V = sc.nextInt();
+		V = sc.nextInt();// ½ÃÀÛÁ¤Á¡
 		map = new int[N + 1][N + 1];
 		visited = new boolean[N + 1];
 		res = new int[N];

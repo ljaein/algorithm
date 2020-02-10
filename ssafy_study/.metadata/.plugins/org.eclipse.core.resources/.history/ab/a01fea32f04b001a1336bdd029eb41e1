@@ -2,7 +2,7 @@ package study0202;
 
 import java.util.Scanner;
 
-public class Main_17136_ìƒ‰ì¢…ì´ë¶™ì´ê¸° {
+public class Main_17136_»öÁ¾ÀÌºÙÀÌ±â {
 
 	static int[][] paper;
 	static int min = Integer.MAX_VALUE;

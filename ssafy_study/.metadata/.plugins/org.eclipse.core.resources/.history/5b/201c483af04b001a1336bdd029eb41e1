@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main_7562_ë‚˜ì´íŠ¸ì˜ì´ë™ {
+public class Main_7562_³ªÀÌÆ®ÀÇÀÌµ¿ {
 
 	static int T, I;
 	static int cy, cx, ay, ax, cnt;
@@ -50,7 +50,7 @@ public class Main_7562_ë‚˜ì´íŠ¸ì˜ì´ë™ {
 							break w;
 						}
 						q.add(new Point(ny, nx));
-						visited[ny][nx]=true; //********************************************* ë„£ì„ë•Œë§ˆë‹¤ ë°©ë¬¸ í‘œì‹œ
+						visited[ny][nx]=true; //********************************************* ³ÖÀ»¶§¸¶´Ù ¹æ¹® Ç¥½Ã
 					}
 				}
 				cnt++;

@@ -16,7 +16,7 @@ public class Main_1260_DFS와BFS {
 		Scanner sc = new Scanner(System.in);
 		N = sc.nextInt();
 		M = sc.nextInt();
-		V = sc.nextInt();
+		V = sc.nextInt();// ��������
 		map = new int[N + 1][N + 1];
 		visited = new boolean[N + 1];
 		res = new int[N];

@@ -1,0 +1,43 @@
+package study0202;
+
+import java.util.Scanner;
+
+public class Main_16637_괄호추가하기 {
+
+	static int N, sum, max;
+	static char[] sik;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		sik = sc.next().toCharArray();
+		for(int i=0;i<(N/2+1)/2;i++)
+			dfs(0,0,i);
+		System.out.println(max);
+	}
+
+	public static void dfs(int start, int cnt, int r) {
+		if(cnt==r){
+			max = Math.max(max, cnt);
+		}
+		for (int i = start; i < N - 2; i = i + 2) {
+			int a = (int) sik[i];
+			char c = sik[i + 1];
+			int b = (int) sik[i + 2];
+			sum += calc(a, b, c);
+			dfs(i + 4, cnt+1,r);
+			sum -= calc(a, b, c);
+		}
+	}
+
+	public static int calc(int a, int b, char c) {
+		if (c == '+') {
+			return a + b;
+		} else if (c == '-') {
+			return a - b;
+		} else {
+			return a * b;
+		}
+	}
+
+}

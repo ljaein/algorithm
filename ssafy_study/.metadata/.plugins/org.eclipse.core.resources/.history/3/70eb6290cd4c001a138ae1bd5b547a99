@@ -19,8 +19,8 @@ public class test {
 		int sx = 2-1; // 2
 		int fy = 5-1; // 5
 		int fx = 6-1; // 6
-		int fin = ((fx+1) - (sx+1)) / 2;
-		for (int n = 0; n <fin; n++) {
+		int fin = fy - sx / 2;
+		for (int n = 0; n < 2; n++) {
 			int temp = arr[sy][fx];
 			for (int i = fx; i > sx; i--) {
 				arr[sy][i] = arr[sy][i - 1];

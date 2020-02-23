@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main_12851_숨바꼭질2 {
 
-	static int N, K, cnt;
+	static int N, K, cnt, res;
 	static boolean[] visited;
 	static int[] check;
 	static Queue<Integer> q;
@@ -20,13 +20,17 @@ public class Main_12851_숨바꼭질2 {
 		q = new LinkedList<Integer>();
 		visited[N] = true;
 		q.add(N);
-
-		w:while (!q.isEmpty()) {
+		boolean answer = false;
+		while (!q.isEmpty()) {
 			int qsize = q.size();
+			if(answer)
+				break;
 			for (int i = 0; i < qsize; i++) {
 				int n = q.poll();
+				visited[n]=true;
 				if (n == K) {
-					break w;
+					res++;
+					answer = true;
 				}
 				check[0] = n - 1;
 				check[1] = n + 1;
@@ -34,13 +38,13 @@ public class Main_12851_숨바꼭질2 {
 				for (int d = 0; d < 3; d++) {
 					if (check[d] < 0 || check[d] >= 100001 || visited[check[d]])
 						continue;
-					visited[check[d]] = true;
 					q.add(check[d]);
 				}
 			}
 			cnt++;
 		}
-		System.out.println(cnt);
+		System.out.println(cnt-1);
+		System.out.println(res);
 
 	}
 

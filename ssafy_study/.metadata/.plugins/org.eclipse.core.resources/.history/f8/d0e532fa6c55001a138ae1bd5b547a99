@@ -1,0 +1,98 @@
+package study0203;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main_16236_아기상어 {
+
+	static int N;
+	static int sy, sx, size, time, eat;
+	static int[][] map;
+	static boolean[][] visited;
+	static Queue<Point> q;
+	static int[] dy = { -1, 0, 0, 1 };
+	static int[] dx = { 0, -1, 1, 0 };
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		size = 2;
+		eat = 0;
+		time = 0;
+		q = new LinkedList<>();
+		map = new int[N][N];
+		visited = new boolean[N][N];
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				map[i][j] = sc.nextInt();
+				if (map[i][j] == 9) {
+					sy = i;
+					sx = j;
+				}
+			}
+		}
+
+		visited[sy][sx] = true;
+		q.add(new Point(sy, sx, 0));
+		map[sy][sx] = 0;
+		go(sy, sx);
+		System.out.println(time);
+	}
+
+	public static void go(int y, int x) {
+		while (!q.isEmpty()) {
+			Point cur = q.poll();
+			for (int d = 0; d < 4; d++) {
+				int ny = cur.y + dy[d];
+				int nx = cur.x + dx[d];
+				if (ny < 0 || nx < 0 || ny >= N || nx >= N || visited[ny][nx])
+					continue;
+				visited[ny][nx] = true;
+				if (map[ny][nx] != 0 && map[ny][nx] < size) {
+					q.clear();
+					visited = new boolean[N][N];
+					visited[ny][nx]=true;
+					map[ny][nx]=0;
+					q.add(new Point(ny, nx, cur.t + 1));
+					time = cur.t + 1;
+					System.out.println(time);
+					eat++;
+					if (size == eat) {
+						size++;
+						eat = 0;
+					}
+					break;
+				} else {
+					if (map[ny][nx] <= size) {
+						q.add(new Point(ny, nx, cur.t + 1));
+					}
+				}
+			}
+
+		}
+
+	}
+
+	public static boolean check() {
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				if (!visited[i][j]) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	static class Point {
+		int y, x, t;
+
+		public Point(int y, int x, int t) {
+			this.y = y;
+			this.x = x;
+			this.t = t;
+		}
+	}
+
+}

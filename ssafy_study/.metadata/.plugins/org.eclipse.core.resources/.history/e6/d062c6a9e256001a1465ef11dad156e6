@@ -1,0 +1,24 @@
+package study0204;
+
+import java.util.Scanner;
+
+public class Main_15683_감시 {
+
+	static int N,M;
+	static int[][] map;
+	static int[] dy = {0,1,0,-1};
+	static int[] dx = {1,0,-1,0}; // 우 하 좌 상
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N=sc.nextInt();
+		M=sc.nextInt();
+		map = new int[N][M];
+		for(int i=0;i<N;i++){
+			for(int j=0;j<M;j++){
+				map[i][j]=sc.nextInt();
+			}
+		}
+		
+	}
+
+}

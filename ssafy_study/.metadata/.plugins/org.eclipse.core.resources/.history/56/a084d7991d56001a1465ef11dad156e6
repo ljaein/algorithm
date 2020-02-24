@@ -1,0 +1,36 @@
+package study0203;
+
+import java.util.Scanner;
+
+public class Main_17471_게리맨더링 {
+
+	static int N;
+	static int[] P;
+	static int[][] map;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N=sc.nextInt();
+		P = new int[N];
+		map = new int[N][N];
+		for(int i=0;i<N;i++){
+			System.out.print("p입력 :");
+			P[i]=sc.nextInt();
+		}
+		for(int i=0;i<N;i++){
+			System.out.println("n입력 : ");
+			int n = sc.nextInt();
+			for(int j=0;j<n;j++){
+				System.out.println("c입력 : ");
+				int c = sc.nextInt();
+				map[i][c-1]=sc.nextInt();
+			}
+		}
+		for(int i=0;i<N;i++){
+			for(int j=0;j<N;j++){
+				System.out.print(map[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+
+}

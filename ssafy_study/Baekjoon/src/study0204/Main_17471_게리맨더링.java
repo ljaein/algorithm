@@ -1,6 +1,5 @@
 package study0204;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main_17471_게리맨더링 {
@@ -8,8 +7,6 @@ public class Main_17471_게리맨더링 {
 	static int N, min;
 	static int[] P;
 	static int[] A, B;
-//	static int[] A ={0,3};
-//	static int[] B={1,2,4,5};
 	static boolean[] visited;
 	static int[][] map;
 

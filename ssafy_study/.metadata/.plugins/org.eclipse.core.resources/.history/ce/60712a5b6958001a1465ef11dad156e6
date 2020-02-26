@@ -1,0 +1,55 @@
+package study0204;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main_2630_색종이만들기 {
+
+	static int N, cnt;
+	static int[][] map;
+	// static boolean[][] visited;
+	static Queue<Point> q = new LinkedList<>();
+	static int[] dy = { 0, 1, 1 };
+	static int[] dx = { 1, 1, 0 };
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		map = new int[N][N];
+		// visited=new boolean[N][N];
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				map[i][j] = sc.nextInt();
+			}
+		}
+		System.out.println(cnt);
+
+	}
+
+	public static void splitPaper(int y, int x, int n) {
+		cnt ++;
+		int cur = map[y][x];
+		for (int i = y; i < y + n; i++) {
+			for (int j = x; j < x + n; j++) {
+				if (cur != map[i][j]) {
+					splitPaper(y, x, n / 2);
+					splitPaper(y, x + n / 2, n / 2);
+					splitPaper(y + n / 2, x, n / 2);
+					splitPaper(y + n / 2, x + n / 2, n / 2);
+				}
+			}
+		}
+	}
+
+	static class Point {
+		int y, x, c;
+
+		public Point(int y, int x, int c) {
+			this.y = y;
+			this.x = x;
+			this.c = c;
+		}
+
+	}
+}

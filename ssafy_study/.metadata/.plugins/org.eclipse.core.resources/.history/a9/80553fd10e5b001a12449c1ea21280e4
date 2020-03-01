@@ -1,0 +1,51 @@
+package study0204;
+
+import java.util.Scanner;
+
+public class Solution_모의_2112_보호필름 {
+
+	static int T, D, W, K;
+	static int[][] film;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		T = sc.nextInt();
+		for (int t = 1; t <= T; t++) {
+			D = sc.nextInt();
+			W = sc.nextInt();
+			K = sc.nextInt();
+			film = new int[D][W];
+			for (int i = 0; i < D; i++) {
+				for (int j = 0; j < W; j++) {
+					film[i][j] = sc.nextInt();
+				}
+			}
+			System.out.println(check(film));
+
+		}
+	}
+
+	public static boolean check(int[][] f) {
+		for (int j = 0; j < W; j++) {
+			System.out.println(j);
+			boolean chk = false;
+			int cnt = 0;
+			for (int i = 0; i < D - 1; i++) {
+				if (f[i][j] == f[i + 1][j]) {
+					cnt++;
+					System.out.println(i + " " + (i + 1) + " : " + f[i][j] + " " + f[i + 1][j]);
+					if (cnt == 2) {
+						chk = true;
+						break;
+					}
+				} else
+					cnt = 0;
+
+			}
+			if (!chk)
+				return false;
+		}
+		return true;
+	}
+
+}

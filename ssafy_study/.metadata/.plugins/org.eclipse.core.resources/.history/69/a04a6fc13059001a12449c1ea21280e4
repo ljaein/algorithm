@@ -1,0 +1,124 @@
+package study0204;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Solution_모의_2383_점심식사시간 {
+
+	static int T, N, time, arrp;
+	static int[][] map;
+	// static Point[] A,B;
+	static Point[] A = { new Point(0, 1), new Point(0, 2), new Point(1, 2) };
+	static Point[] B = { new Point(2, 1), new Point(2, 3), new Point(4, 0) };
+	static Point[] stairs = new Point[2];
+	static ArrayList<Point> peo = new ArrayList<>();
+	static ArrayList<Integer> As = new ArrayList<>();
+	static Queue<Point> Aq = new LinkedList<>();
+	static ArrayList<Integer> Bs = new ArrayList<>();
+	static Queue<Point> Bq = new LinkedList<>();
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		T = sc.nextInt();
+		for (int t = 1; t <= T; t++) {
+			N = sc.nextInt();
+			map = new int[N][N];
+			int idx = 0;
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					map[i][j] = sc.nextInt();
+					if (map[i][j] != 1 && map[i][j] != 0) {
+						stairs[idx++] = new Point(i, j);
+					} else if (map[i][j] == 1) {
+						peo.add(new Point(i, j));
+					}
+				}
+			}
+			// System.out.println(peo.size());
+			// for(int i=0;i<peo.size();i++){
+			// A = new Point[i];
+			// B = new Point[peo.size()-i];
+			// boolean[] check = new boolean[peo.size()];
+			// combi(0,0,i,check);
+			// }
+			while (arrp < peo.size()) {
+				time++;
+				System.out.println("시간"+time+" "+arrp);
+				minute(A, 0, As, Aq);
+				minute(B, 1, Bs, Bq);
+			}
+			System.out.println(time);
+		}
+	}
+
+	public static void combi(int start, int cnt, int r, boolean[] check) {
+		if (cnt == r) {
+			int idx = 0;
+			for (int i = 0; i < peo.size(); i++) {
+				if (!check[i])
+					B[idx++] = peo.get(i);
+			}
+			// System.out.println(Arrays.toString(check));
+			time = 0;
+			return;
+		}
+		for (int i = start; i < peo.size(); i++) {
+			A[cnt] = peo.get(i);
+			check[i] = true;
+			combi(i + 1, cnt + 1, r, check);
+			check[i] = false;
+		}
+	}
+
+	public static void minute(Point[] P, int snum, ArrayList<Integer> list, Queue<Point> q) {
+		for (int i = 0; i < P.length; i++) {
+			if(P[i].y==-1)
+				continue;
+			if (P[i].y < stairs[snum].y) {
+				P[i].y += 1;
+			} else if (P[i].y > stairs[snum].y) {
+				P[i].y -= 1;
+			} else { // y좌표 같은 경우
+				if (P[i].x < stairs[snum].x) {
+					P[i].x += 1;
+				} else if (P[i].x > stairs[snum].x) {
+					P[i].x -= 1;
+				} else {// x좌표 같은 경우
+					System.out.println("도착");
+					P[i].y=-1;
+					if (list.size() < 3) {
+						list.add(0);
+					} else {
+						q.add(new Point(P[i].y, P[i].x));
+					}
+
+				}
+			}
+		}
+		for (int i = 0; i < list.size(); i++) {
+			list.set(i, list.get(i) + 1);
+			if (list.get(i) == map[stairs[snum].y][stairs[snum].x]) {
+				list.remove(i);
+				arrp++;
+			}
+		}
+		if (list.size() < 3) {
+			q.poll();
+			list.add(0);
+		}
+	}
+
+	static class Point {
+		int y, x;
+
+		public Point(int y, int x) {
+			this.y = y;
+			this.x = x;
+		}
+
+	}
+
+}

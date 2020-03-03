@@ -1,0 +1,30 @@
+package study0204;
+
+import java.util.Comparator;
+import java.util.LinkedList;
+
+public class Main_16235_나무재테크 {
+
+	static int N,M,K;
+	static int[][] A;
+	public static class C implements Comparator<Integer>{
+
+		@Override
+		public int compare(Integer arg0, Integer arg1) {
+			if(arg0 >arg1)
+				return 1;
+			else
+				return -1;
+		}
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LinkedList<Integer> list = new LinkedList<>();
+		list.add(2);
+		list.add(1);
+		list.sort(new C());
+		System.out.println(list.toString());
+	}
+
+}

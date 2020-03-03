@@ -1,0 +1,125 @@
+package study0204;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+
+public class Main_16235_나무재테크 {
+
+	static int N,M,K;
+	static int[][] A;
+	static int[][] nut;
+	static LinkedList<Tree> tree;
+	
+	public static class C implements Comparator<Tree>{
+
+		@Override
+		public int compare(Tree t1, Tree t2) {
+			if(t1.a>t2.a)
+				return 1;
+			else
+				return -1;
+		}
+		
+	}
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine()," ");
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		K = Integer.parseInt(st.nextToken());
+		A = new int[N][N];//추가할 양분
+		for(int i=0;i<N;i++){
+			st = new StringTokenizer(br.readLine()," ");
+			for(int j=0;j<N;j++){
+				A[i][j]= Integer.parseInt(st.nextToken());
+			}
+		}
+		tree = new LinkedList<>();
+		for(int i=0;i<M;i++){
+			st = new StringTokenizer(br.readLine()," ");
+			tree.add(new Tree(Integer.parseInt(st.nextToken())-1,Integer.parseInt(st.nextToken())-1,Integer.parseInt(st.nextToken())));
+		}
+		tree.sort(new C());
+		nut = new int[N][N]; //현재 양분
+		for(int i=0;i<N;i++){
+			for(int j=0;j<N;j++){
+				nut[i][j]=5;
+			}
+		}
+		
+		for(int k=0;k<K;k++){
+			year();
+			System.out.println(tree.size());
+			for(int i=0;i<N;i++){
+				for(int j=0;j<N;j++){
+					System.out.print(nut[i][j]+ " ");
+				}
+				System.out.println();
+			}
+		}
+		System.out.println(tree.size());
+		
+		
+	}
+	
+	public static void year(){
+		Queue<Tree> die = new LinkedList<>();
+		int[] dy = {-1,-1,-1,0,1,1,1,0};
+		int[] dx = {-1,0,1,1,1,0,-1,-1};
+		//봄
+		for(int i=0;i<tree.size();i++){
+			Tree cur = tree.get(i);
+			if(cur.a<=nut[cur.y][cur.x]){
+				nut[cur.y][cur.x]-=cur.a;
+				cur.a+=1;
+			}else{
+				die.add(tree.remove(i));
+			}
+		}
+		//여름
+		while(!die.isEmpty()){
+			Tree cur = die.poll();
+			nut[cur.y][cur.x] += cur.a/2;
+		}
+		//가을
+		for(int i=0;i<tree.size();i++){
+			Tree cur = tree.get(i);
+			if(cur.a%5==0){
+				for(int d=0;d<8;d++){
+					int ny = cur.y+dy[d];
+					int nx = cur.x+dx[d];
+					if(ny<0||nx<0||ny>=N||nx>=N)
+						continue;
+					tree.add(new Tree(ny,nx,1));
+				}
+			}
+		}
+		tree.sort(new C());
+		//겨울
+		for(int i=0;i<N;i++){
+			for(int j=0;j<N;j++){
+				nut[i][j]+=A[i][j];
+			}
+		}
+		
+	}
+	
+	static class Tree{
+		int y, x, a;
+
+		public Tree(int y, int x, int a) {
+			super();
+			this.y = y;
+			this.x = x;
+			this.a = a;
+		}
+		
+	}
+
+}

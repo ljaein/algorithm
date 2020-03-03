@@ -1,0 +1,85 @@
+package study0301;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Solution_D5_1907_모래성쌓기 {
+
+	static int T, H, W;
+	static char[][] map;
+	static List<Point> list = new LinkedList<>();
+	static int[] dy = { -1, -1, -1, 0, 1, 1, 1, 0 };
+	static int[] dx = { -1, 0, 1, 1, 1, 0, -1, -1 };
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		T = Integer.parseInt(br.readLine());
+		for (int t = 1; t <= T; t++) {
+			String[] s = br.readLine().split(" ");
+			H = Integer.parseInt(s[0]);
+			W = Integer.parseInt(s[1]);
+			map = new char[H][W];
+			for (int i = 0; i < H; i++) {
+				map[i] = br.readLine().toCharArray();
+				for (int j = 0; j < W; j++) {
+					if (map[i][j] != '.' && map[i][j] != '9')
+						list.add(new Point(i, j));
+				}
+			}
+
+			System.out.println("#" + t + " " + wave());
+		}
+	}
+
+	public static int wave() {
+		int res = 0;
+		boolean fin = false;
+		while (!fin) {
+			fin = true;
+			for (Point p : list) {
+				if (map[p.y][p.x] == '.')
+					continue;
+				int cnt = 0;
+				for (int d = 0; d < 8; d++) {
+					int y = p.y + dy[d];
+					int x = p.x + dx[d];
+					if (map[y][x] == '.') {
+						cnt++;
+					}
+				}
+				if (cnt >= map[p.y][p.x] - '0') {
+					p.l = 0;
+					fin = false;
+				}
+			}
+			for (Iterator<Point> it = list.iterator(); it.hasNext();) {
+				Point p = it.next();
+				if (p.l == 0) {
+					map[p.y][p.x] = '.';
+					it.remove();
+				}
+			}
+			if (fin)
+				break;
+			res++;
+		}
+		return res;
+	}
+
+	static class Point {
+		int y, x, l;
+
+		public Point(int y, int x) {
+			super();
+			this.y = y;
+			this.x = x;
+			l = 1;
+		}
+
+	}
+
+}

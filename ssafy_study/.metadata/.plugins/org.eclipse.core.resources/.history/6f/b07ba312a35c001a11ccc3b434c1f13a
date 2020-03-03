@@ -1,0 +1,13 @@
+package study0201;
+
+import java.util.LinkedList;
+
+public class test {
+	public static void main(String[] args) {
+		char c = '4';
+		if(3 == Character.getNumericValue(c))
+			System.out.println("ok");
+		else
+			System.out.println("no");
+	}
+}

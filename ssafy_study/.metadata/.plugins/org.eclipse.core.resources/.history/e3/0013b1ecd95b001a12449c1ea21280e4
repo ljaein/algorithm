@@ -1,0 +1,14 @@
+package study0201;
+
+import java.util.LinkedList;
+
+public class test {
+	public static void main(String[] args) {
+		LinkedList<Integer> list = new LinkedList<>();
+		list.add(5);
+		list.add(2);
+		int a = list.remove(0);
+		System.out.println(a);
+		System.out.println(list.toString());
+	}
+}

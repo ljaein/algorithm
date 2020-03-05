@@ -1,0 +1,9 @@
+package study0201;
+
+import java.util.LinkedList;
+
+public class test {
+	public static void main(String[] args) {
+		System.out.println(Math.sqrt(128));
+	}
+}

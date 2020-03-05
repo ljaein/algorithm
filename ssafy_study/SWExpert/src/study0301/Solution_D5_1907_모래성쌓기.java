@@ -54,7 +54,6 @@ public class Solution_D5_1907_모래성쌓기 {
 				for (int qs = 0; qs < qsize; qs++) {
 					Point cur = q.poll();
 					map[cur.y][cur.x] = 0;
-					cnt[cur.y][cur.x] = 0;
 					for (int d = 0; d < 8; d++) {
 						int y = cur.y + dy[d];
 						int x = cur.x + dx[d];

@@ -1,13 +1,10 @@
 package study0201;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class test {
 	public static void main(String[] args) {
-		char c = '3';
-		if(3 == c-'0')
-			System.out.println("ok");
-		else
-			System.out.println("no");
+	
 	}
 }

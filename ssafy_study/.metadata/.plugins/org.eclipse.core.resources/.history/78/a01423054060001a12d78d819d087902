@@ -1,0 +1,66 @@
+package study0301;
+
+import java.util.Scanner;
+
+public class Main_14499_주사위굴리기 {
+
+	static int N, M, sy, sx, K;
+	static int[][] map;
+	static int[] go;
+	static int[] dice = new int[6];
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		M = sc.nextInt();
+		sy = sc.nextInt();
+		sx = sc.nextInt();
+		K = sc.nextInt();
+		map = new int[N][M];
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < M; j++) {
+				map[i][j] = sc.nextInt();
+			}
+		}
+		go = new int[K];
+		for (int i = 0; i < K; i++)
+			go[i] = sc.nextInt();
+	}
+
+	static void rotate(int d) {
+		if (d == 1) {
+			int temp = dice[2];
+			dice[2] = dice[0];
+			int temp2 = dice[5];
+			dice[5] = temp;
+			temp = dice[3];
+			dice[3] = temp2;
+			dice[0] = temp;
+		} else if (d == 2) {
+			int temp = dice[3];
+			dice[3] = dice[0];
+			int temp2 = dice[5];
+			dice[5] = temp;
+			temp = dice[2];
+			dice[2] = temp2;
+			dice[0] = temp;
+		} else if (d == 3) {
+			int temp = dice[1];
+			dice[1] = dice[0];
+			int temp2 = dice[5];
+			dice[5] = temp;
+			temp = dice[4];
+			dice[4] = temp2;
+			dice[0] = temp;
+		} else if (d == 4) {
+			int temp = dice[4];
+			dice[4] = dice[0];
+			int temp2 = dice[5];
+			dice[5] = temp;
+			temp = dice[1];
+			dice[1] = temp2;
+			dice[0] = temp;
+		}
+	}
+
+}

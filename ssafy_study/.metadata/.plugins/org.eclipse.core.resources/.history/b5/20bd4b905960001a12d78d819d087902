@@ -1,0 +1,69 @@
+package study0301;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Solution_D4_5671_지구온난화 {
+
+	static int T, N, M;
+	static String[] word;
+	static char[] use;
+	static boolean[] sel;
+	static boolean[] alph;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		T = sc.nextInt();
+		for (int t = 1; t <= T; t++) {
+			N = sc.nextInt();
+			M = sc.nextInt();
+			word = new String[N];
+			alph = new boolean[26];
+			for (int i = 0; i < N; i++) {
+				word[i] = sc.next();
+				char[] c = word[i].toCharArray();
+				for (int j = 0; j < c.length; j++) {
+					System.out.println(c[j]);
+					alph[c[j] - 'a'] = true;
+				}
+			}
+			int len = 0;
+			for (int i = 0; i < 26; i++) {
+				if (alph[i])
+					len++;
+			}
+			use = new char[len];
+			int idx = 0;
+			for (int i = 0; i < 26; i++) {
+				if (alph[i])
+					use[idx++] = (char) (i + 'a');
+			}
+			sel = new boolean[26];
+			combi(0,0);
+//			System.out.println(Arrays.toString(use));
+		}
+	}
+
+	static void combi(int start, int cnt) {
+		if(cnt==M){
+			for(int i=0;i<26;i++){
+				if(sel[i])
+					System.out.print(i+'a');
+			}
+			System.out.println();
+			check();
+			return;
+		}
+		for(int i=start;i<use.length;i++){
+			sel[use[i]-'a']=true;
+			combi(i+1,cnt+1);
+			sel[use[i]-'a']=false;
+		}
+	}
+	static void check(){
+		for(int i=0;i<N;i++){
+			
+		}
+	}
+
+}

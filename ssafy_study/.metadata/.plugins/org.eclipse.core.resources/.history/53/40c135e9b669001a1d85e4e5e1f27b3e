@@ -1,0 +1,68 @@
+package study0303;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
+
+public class Main_2565_전깃줄 {
+
+	static int N;
+	static Point[] rope;
+	static int[] dp;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		rope = new Point[N];
+		dp = new int[N];
+		for (int i = 0; i < N; i++) {
+			rope[i] = new Point(sc.nextInt(), sc.nextInt());
+		}
+		Arrays.sort(rope);
+		dp[0] = 1;
+		for (int i = 1; i < N; i++) {
+			boolean in = false;
+			int idx = -1;
+			for (int j = 0; j < i; j++) {
+				if (rope[j].b != 0) {
+					if (rope[i].b < rope[j].b) {
+						if (in) {
+							rope[i].b = 0;
+							break;
+						}
+						idx = j;
+						in = true;
+					}
+				}
+			}
+			if (idx != -1)
+				rope[idx].b = 0;
+		}
+
+	}
+
+	static class Point implements Comparable<Point> {
+		int a, b;
+
+		public Point(int a, int b) {
+			super();
+			this.a = a;
+			this.b = b;
+		}
+
+		@Override
+		public int compareTo(Point arg0) {
+			if (this.a > arg0.a)
+				return 1;
+			else
+				return -1;
+		}
+
+		@Override
+		public String toString() {
+			return "Point [a=" + a + ", b=" + b + "]";
+		}
+
+	}
+
+}

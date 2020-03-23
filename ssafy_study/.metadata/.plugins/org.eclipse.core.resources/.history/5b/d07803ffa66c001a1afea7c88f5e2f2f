@@ -1,0 +1,7 @@
+package medical;
+
+public class Hospital extends Organization{
+	String hospitalId;
+	int roomTotalCount;
+	int roomEmptyCount;
+}

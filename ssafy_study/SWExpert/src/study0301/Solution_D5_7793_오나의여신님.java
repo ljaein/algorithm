@@ -10,8 +10,8 @@ public class Solution_D5_7793_오나의여신님 {
 	static boolean isfind;
 	static char[][] map;
 	static boolean[][] visited;
-	static Queue<Point> dev = new LinkedList<>();
-	static Queue<Point> q = new LinkedList<>();
+	static Queue<Point> dev;
+	static Queue<Point> q;
 	static int[] dy = { -1, 0, 1, 0 };
 	static int[] dx = { 0, 1, 0, -1 };
 
@@ -25,25 +25,21 @@ public class Solution_D5_7793_오나의여신님 {
 			M = sc.nextInt();
 			map = new char[N][M];
 			visited = new boolean[N][M];
+			dev = new LinkedList<>();
+			q = new LinkedList<>();
 			for (int i = 0; i < N; i++) {
 				map[i] = sc.next().toCharArray();
 				for (int j = 0; j < M; j++) {
 					if (map[i][j] == '*') {
 						dev.add(new Point(i, j));
 					} else if (map[i][j] == 'S') {
-						map[i][j]='.';
+						map[i][j] = '.';
 						visited[i][j] = true;
 						q.add(new Point(i, j));
 					}
 				}
 			}
 			bfs();
-			for(int i=0;i<N;i++){
-				for(int j=0;j<M;j++){
-					System.out.print(map[i][j]+" ");
-				}
-				System.out.println();
-			}
 			System.out.println("#" + t + " " + (isfind ? ans : "GAME OVER"));
 		}
 
@@ -77,8 +73,7 @@ public class Solution_D5_7793_오나의여신님 {
 						ans++;
 						isfind = true;
 						return;
-					}
-					if (map[ny][nx] == '.') {
+					} else if (map[ny][nx] == '.') {
 						visited[ny][nx] = true;
 						q.add(new Point(ny, nx));
 					}
@@ -93,7 +88,6 @@ public class Solution_D5_7793_오나의여신님 {
 		int y, x;
 
 		public Point(int y, int x) {
-			super();
 			this.y = y;
 			this.x = x;
 		}

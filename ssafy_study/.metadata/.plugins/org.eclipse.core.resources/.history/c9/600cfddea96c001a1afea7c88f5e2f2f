@@ -1,0 +1,6 @@
+package person;
+
+public class Doctor extends Person {
+	String hospitalId;
+	String licenseid;
+}

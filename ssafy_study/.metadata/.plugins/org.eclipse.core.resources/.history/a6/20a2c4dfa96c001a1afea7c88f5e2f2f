@@ -1,0 +1,14 @@
+package person;
+
+public class Doctor extends Person {
+	String hospitalId;
+	String licenseid;
+	
+	public Doctor(String name, int age, String phone, String hospitalId, String licenseid) {
+		super(name, age, phone);
+		this.hospitalId = hospitalId;
+		this.licenseid = licenseid;
+	}
+	
+	
+}

@@ -1,5 +1,0 @@
-package medical;
-
-public class Hospital extends Organization{
-
-}

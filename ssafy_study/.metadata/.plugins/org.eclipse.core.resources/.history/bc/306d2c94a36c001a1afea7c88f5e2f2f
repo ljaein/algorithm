@@ -1,5 +1,0 @@
-package medical;
-
-public class CDC extends Organization{ //질병관리본부
-
-}

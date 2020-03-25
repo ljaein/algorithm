@@ -1,8 +1,0 @@
-package medical;
-
-public class NotCoronaException extends Exception {
-
-	public NotCoronaException(String msg) {
-		super(msg);
-	}
-}

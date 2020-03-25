@@ -1,6 +1,0 @@
-package virus;
-
-public class Virus {
-	String name;
-	int level;
-}

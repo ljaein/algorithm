@@ -1,7 +1,0 @@
-package person;
-
-public class Patient {
-	String diseaseName;
-	String hospitalId;
-	boolean isCorona;
-}

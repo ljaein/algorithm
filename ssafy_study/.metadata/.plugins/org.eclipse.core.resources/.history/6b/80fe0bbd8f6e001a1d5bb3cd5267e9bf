@@ -1,0 +1,44 @@
+package study0304;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main_1753_최단경로 {
+
+	static int V,E,K;
+	static List<Ver>[] list;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		V=sc.nextInt();
+		E=sc.nextInt();
+		K=sc.nextInt();
+		list = new LinkedList[V+1];
+		for(int i=0;i<=V;i++){
+			list[i]=new LinkedList<Ver>();
+		}
+		for(int i=0;i<E;i++){
+			int x=sc.nextInt();
+			int y=sc.nextInt();
+			int e=sc.nextInt();
+			list[x].add(new Ver(y,e));
+		}
+		System.out.println(list.toString());
+	}
+	
+	static class Ver{
+		int v, w;
+
+		public Ver(int v, int w) {
+			super();
+			this.v = v;
+			this.w = w;
+		}
+
+		@Override
+		public String toString() {
+			return "Ver [v=" + v + ", w=" + w + "]";
+		}
+		
+	}
+}

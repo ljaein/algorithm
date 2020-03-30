@@ -1,0 +1,114 @@
+package study0304;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main_1944_복제로봇 {
+
+	static int N, M, ans;
+	static char[][] map;
+	static int[] ver;
+	static int[] dy = { -1, 0, 1, 0 };
+	static int[] dx = { 0, 1, 0, -1 };
+	static int[] vy = new int[M + 1];
+	static int[] vx = new int[M + 1];
+	static PriorityQueue<Point> pq = new PriorityQueue<>();
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		M = sc.nextInt();
+		map = new char[N][N];
+		ver = new int[M + 1];
+		for(int i=0;i<=M;i++)
+			ver[i]=i;
+		int idx = 0;
+		vy = new int[M + 1];
+		vx = new int[M + 1];
+		for (int i = 0; i < N; i++) {
+			map[i] = sc.next().toCharArray();
+			for (int j = 0; j < N; j++) {
+				if (map[i][j] == 'S' || map[i][j] == 'K') {
+					vy[idx] = i;
+					vx[idx] = j;
+					idx++;
+				}
+			}
+		}
+		bfs(1,2);
+//		for (int i = 0; i < M; i++) {
+//			for (int j = i + 1; j < M+1; j++) {
+//				bfs(i, j);
+//			}
+//		}
+//		int chk = 0;
+//		while (!pq.isEmpty()) {
+//			if(chk==M)
+//				break;
+//			Point p = pq.poll();
+//			System.out.println(p);
+//			int v1 = ver[p.x];
+//			int v2 = ver[p.y];
+//			if (v1 != v2) {
+//				for (int i = 0; i <= M; i++) {
+//					if (ver[i] == v2) {
+//						ver[i] = v1;
+//					}
+//				}
+//				ans += p.cnt;
+//				chk++;
+//			}
+//
+//		}
+		System.out.println(ans);
+	}
+
+	static void bfs(int a, int b) { //출발, 도착
+		boolean[][] visit = new boolean[N][N];
+		Queue<Point> q = new LinkedList<>();
+		visit[vy[a]][vx[a]] = true;
+		q.add(new Point(vy[a], vx[a], 0));
+		while (!q.isEmpty()) {
+			Point cur = q.poll();
+			for (int d = 0; d < 4; d++) {
+				int ny = cur.y + dy[d];
+				int nx = cur.x + dx[d];
+				if (ny < 0 || nx < 0 || ny >= N || nx >= N || visit[ny][nx] || map[ny][nx]=='1')
+					continue;
+				System.out.println(ny+ " "+nx);
+				if (ny == vy[b] && nx == vx[b]) {
+					pq.add(new Point(a, b, cur.cnt + 1));
+					System.out.println(a+" "+b+" "+(cur.cnt+1));
+					return;
+				}
+				visit[ny][nx] = true;
+				q.add(new Point(ny, nx, cur.cnt + 1));
+			}
+		}
+	}
+
+	static class Point implements Comparable<Point> {
+		int x, y, cnt;
+
+		public Point(int x, int y, int cnt) {
+			this.x = x;
+			this.y = y;
+			this.cnt = cnt;
+		}
+
+		@Override
+		public String toString() {
+			return "Point [x=" + x + ", y=" + y + ", cnt=" + cnt + "]";
+		}
+
+		@Override
+		public int compareTo(Point arg0) {
+			return this.cnt - arg0.cnt;
+		}
+
+	}
+
+}

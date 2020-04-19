@@ -10,8 +10,11 @@ import java.util.Stack;
 public class test {
 
 	public static void main(String[] args) {
-		int[] arr = {2,3,1};
-		Arrays.sort(arr);
+		LinkedList<Integer> list = new LinkedList<>();
+		list.add(2);
+		list.add(3);
+		System.out.println(list.poll());
+		System.out.println(Integer.MIN_VALUE);
 	}
 
 }

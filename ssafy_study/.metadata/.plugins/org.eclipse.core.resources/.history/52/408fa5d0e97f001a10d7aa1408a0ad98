@@ -1,0 +1,53 @@
+package study0403;
+
+import java.util.Scanner;
+
+public class Main_2660_회장뽑기 {
+
+	static int N;
+	static int[][] adj;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		adj = new int[N][N];
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				if (i != j)
+				adj[i][j] = Integer.MAX_VALUE;
+			}
+		}
+		while (true) {
+			int a = sc.nextInt()-1;
+			int b = sc.nextInt()-1;
+			if (a == -2 && b == -2)
+				break;
+			adj[a][b] = 1;
+			adj[b][a] = 1;
+		}
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				if(adj[i][j]==Integer.MAX_VALUE)
+					System.out.print("M ");
+				else
+				System.out.print(adj[i][j]+" ");
+			}
+			System.out.println();
+		}
+		for (int k = 0; k < N; k++) {
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					if(adj[i][j] > adj[i][k]+adj[k][j])
+						adj[i][j] = adj[i][k]+adj[k][j];
+				}
+			}
+		}
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				System.out.print(adj[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+
+}

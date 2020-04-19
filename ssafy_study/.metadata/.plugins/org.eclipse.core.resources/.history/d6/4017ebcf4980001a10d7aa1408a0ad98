@@ -1,0 +1,74 @@
+package study0403;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class ssafytest {
+
+	static int T, ans;
+	static int[][] map;
+	static boolean[][] visited;
+	static Queue<Point> q;
+	static int[] dy = { -1, -1, -1, 0, 1, 1, 1, 0 };
+	static int[] dx = { -1, 0, 1, 1, 1, 0, -1, -1 };
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		T = sc.nextInt();
+		for (int t = 1; t <= T; t++) {
+			map = new int[10][10];
+			visited = new boolean[10][10];
+			ans = 0;
+			q = new LinkedList<>();
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 10; j++) {
+					map[i][j] = sc.nextInt();
+				}
+			}
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 10; j++) {
+					System.out.print(map[i][j] + " ");
+				}
+				System.out.println();
+			}
+			for (int i = 0; i < 10; i++) {
+				for (int j = 0; j < 10; j++) {
+					if (map[i][j] == 1 && !visited[i][j]) {
+						bfs(i, j);
+						ans++;
+					}
+				}
+			}
+			System.out.println("#"+t+" "+ans);
+		}
+
+	}
+
+	static void bfs(int y, int x) {
+		visited[y][x] = true;
+		q.add(new Point(y, x));
+		while (!q.isEmpty()) {
+			Point cur = q.poll();
+			for (int d = 0; d < 8; d++) {
+				int ny = cur.y + dy[d];
+				int nx = cur.x + dx[d];
+				if (ny < 0 || nx < 0 || ny >= 10 || nx >= 10 || visited[ny][nx])
+					continue;
+				visited[ny][nx] = true;
+				q.add(new Point(ny, nx));
+			}
+		}
+	}
+
+	static class Point {
+		int y, x;
+
+		public Point(int y, int x) {
+			super();
+			this.y = y;
+			this.x = x;
+		}
+
+	}
+}

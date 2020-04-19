@@ -1,0 +1,45 @@
+package study0403;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main_17825_주사위윷놀이 {
+
+	static int[] num, sel, map;
+	static int[] b10 = { 13, 16, 19, 25, 30, 35, 40, -1 };
+	static int[] b20 = { 22, 24, 25, 30, 35, 40, -1 };
+	static int[] b30 = { 28, 27, 26, 25, 30, 35, 40, -1 };
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		num = new int[10];
+		sel = new int[10];
+		map = new int[21];
+		for (int i = 0; i < 10; i++) {
+			num[i] = sc.nextInt();
+		}
+		for (int i = 0; i < 20; i++) {
+			map[i] = (i + 1) * 2;
+		}
+		map[20] = -1;
+		perm(0);
+
+	}
+
+	static void perm(int cnt) {
+		if (cnt == 10) {
+			System.out.println(Arrays.toString(sel));
+			move();
+			return;
+		}
+		for (int i = 0; i < 4; i++) {
+			sel[cnt] = i;
+			perm(cnt+1);
+		}
+	}
+
+	static void move() {
+
+	}
+
+}

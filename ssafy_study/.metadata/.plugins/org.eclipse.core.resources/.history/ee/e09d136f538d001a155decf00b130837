@@ -1,0 +1,81 @@
+package study0404;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main_1938_통나무옮기기 {
+
+	static int N;
+	static char[][] map;
+	static boolean[][][] visit;
+	static Point[] tree = new Point[3];
+	static int[] dy = { -1, 1, 0, 0, -1, -1, 1, 1 };
+	static int[] dx = { 0, 0, -1, 1, -1, 1, -1, 1 };
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		map = new char[N][N];
+		visit = new boolean[N][N][2];
+		int idx = 0;
+		for (int i = 0; i < N; i++) {
+			map[i] = sc.next().toCharArray();
+			for (int j = 0; j < N; j++) {
+				if (map[i][j] == 'B')
+					tree[idx++] = new Point(i, j, 0);
+			}
+		}
+
+	}
+
+	static void bfs() {
+		Queue<Point> q = new LinkedList<>();
+		int sh;
+		if (tree[0].y == tree[1].y) {
+			sh = 1;
+		} else
+			sh = 0;
+		q.add(new Point(tree[1].y, tree[1].x, sh));
+		while (!q.isEmpty()) {
+			Point cur = q.poll();
+			for (int d = 0; d < 4; d++) {
+				int ny = cur.y + dy[d];
+				int nx = cur.x + dx[d];
+				if (ny < 0 || nx < 0 || ny >= N || nx >= N || visit[ny][nx][cur.s] || map[ny][nx] == 1)
+					continue;
+				if (cur.s == 0) {
+					if (map[ny + 1][nx] == 1 || map[ny - 1][nx] == 1)
+						continue;
+				} else {
+					if (map[ny][nx + 1] == 1 || map[ny][nx - 1] == 1)
+						continue;
+				}
+				visit[ny][nx][cur.s] = true;
+				q.add(new Point(ny, nx, cur.s));
+			}
+			// 회전할때 안걸리면
+			for (int d = 0; d < 8; d++) {
+				int ny = cur.y + dy[d];
+				int nx = cur.x + dx[d];
+				if (ny < 0 || nx < 0 || ny >= N || nx >= N || map[ny][nx] == 1)
+					continue;
+			}
+			q.add(new Point(cur.y, cur.x, cur.s == 1 ? 0 : 1));
+
+		}
+
+	}
+
+	static class Point {
+		int y, x, s;
+
+		public Point(int y, int x, int s) {
+			super();
+			this.y = y;
+			this.x = x;
+			this.s = s;
+		}
+
+	}
+}

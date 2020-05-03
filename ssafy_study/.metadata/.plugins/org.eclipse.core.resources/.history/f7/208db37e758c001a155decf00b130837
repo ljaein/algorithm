@@ -1,0 +1,30 @@
+package study0404;
+
+import java.util.Scanner;
+
+public class Main_1726_로봇 {
+
+	static int M, N;
+	static int[][] map;
+	static int sy, sx, sd, ey, ex, ed;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		M = sc.nextInt();
+		N = sc.nextInt();
+		map = new int[M][N];
+		for (int i = 0; i < M; i++) {
+			for (int j = 0; j < N; j++) {
+				map[i][j] = sc.nextInt();
+			}
+		}
+		sy = sc.nextInt();
+		sx = sc.nextInt();
+		sd = sc.nextInt();
+		ey = sc.nextInt();
+		ex = sc.nextInt();
+		ed = sc.nextInt();
+
+	}
+
+}

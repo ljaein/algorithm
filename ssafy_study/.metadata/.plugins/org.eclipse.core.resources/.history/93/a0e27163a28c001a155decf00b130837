@@ -1,0 +1,79 @@
+package study0404;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main_2234_성곽 {
+
+	static int n, m, max, cnt;
+	static int[][] map, num;
+	static boolean[][] visit;
+	static Queue<Point> q;
+	static int[] dy = { 0, -1, 0, 1 };
+	static int[] dx = { -1, 0, 1, 0 };
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		m = sc.nextInt();
+		map = new int[m][n];
+		num = new int[m][n];
+		visit = new boolean[m][n];
+		q = new LinkedList<>();
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				map[i][j] = sc.nextInt();
+			}
+		}
+		int num = 1;
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (!visit[i][j]) {
+					bfs(i, j, num++);
+					cnt++;
+				}
+			}
+		}
+		System.out.println(cnt);
+		System.out.println(max);
+
+	}
+
+	static void bfs(int y, int x, int n) {
+		int size = 1;
+		visit[y][x] = true;
+		q.add(new Point(y, x));
+		num[y][x]=n;
+		while (!q.isEmpty()) {
+			int qsize = q.size();
+			for (int s = 0; s < qsize; s++) {
+				Point cur = q.poll();
+				for (int d = 0; d < 4; d++) {
+					if ((map[cur.y][cur.x] & (1 << d)) != 0)
+						continue;
+					int ny = cur.y + dy[d];
+					int nx = cur.x + dx[d];
+					if (ny < 0 || nx < 0 || ny >= m || nx >= n || visit[ny][nx])
+						continue;
+					visit[ny][nx] = true;
+					q.add(new Point(ny, nx));
+					num[y][x]=n;
+				}
+			}
+			size++;
+		}
+		max = Math.max(max, size);
+	}
+
+	static class Point {
+		int y, x;
+
+		public Point(int y, int x) {
+			super();
+			this.y = y;
+			this.x = x;
+		}
+
+	}
+}

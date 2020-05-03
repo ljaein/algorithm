@@ -1,0 +1,41 @@
+package study0404;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main_1938_통나무옮기기 {
+
+	static int N;
+	static char[][] map;
+	static Point[] tree = new Point[3];
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N=sc.nextInt();
+		map = new char[N][N];
+		int idx = 0;
+		for (int i = 0; i < N; i++) {
+			map[i] = sc.next().toCharArray();
+			for (int j = 0; j < N; j++) {
+				if(map[i][j]=='B')
+					tree[idx++]=new Point(i,j);
+			}
+		}
+	}
+
+	static void bfs(){
+		Queue<Point> q = new LinkedList<>();
+		
+	}
+	static class Point{
+		int y, x, s;
+
+		public Point(int y, int x, int s) {
+			super();
+			this.y = y;
+			this.x = x;
+			this.s = s;
+		}
+		
+	}
+}

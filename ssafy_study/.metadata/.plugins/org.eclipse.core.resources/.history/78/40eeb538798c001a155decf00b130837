@@ -1,0 +1,96 @@
+package study0404;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main_1726_로봇 {
+
+	static int M, N;
+	static int[][] map;
+	static int sy, sx, sd, ey, ex, ed;
+	static boolean[][] visit;
+	static int[] dy = { 0, 0, 1, -1 };
+	static int[] dx = { 1, -1, 0, 0 };
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		M = sc.nextInt();
+		N = sc.nextInt();
+		map = new int[M][N];
+		visit = new boolean[M][N];
+		for (int i = 0; i < M; i++) {
+			for (int j = 0; j < N; j++) {
+				map[i][j] = sc.nextInt();
+			}
+		}
+		sy = sc.nextInt() - 1;
+		sx = sc.nextInt() - 1;
+		sd = sc.nextInt() - 1;
+		ey = sc.nextInt() - 1;
+		ex = sc.nextInt() - 1;
+		ed = sc.nextInt() - 1;
+		bfs();
+	}
+
+	static void bfs() {
+		Queue<Point> q = new LinkedList<>();
+		visit[sy][sx] = true;
+		q.add(new Point(sy, sx, sd, 0));
+		while (!q.isEmpty()) {
+			Point cur = q.poll();
+			if (cur.y == ey && cur.x == ex) {
+				System.out.println(cur.cnt);
+				return;
+			}
+			for (int d = 0; d < 4; d++) {
+				int ny = cur.y + dy[d];
+				int nx = cur.x + dx[d];
+				if (ny < 0 || nx < 0 || ny >= M || nx >= N || visit[ny][nx] || map[ny][nx]==1)
+					continue;
+				visit[ny][nx] = true;
+				int ncnt = cur.cnt;
+				if (cur.d == d)
+					ncnt++;
+				else {
+					if (cur.d == 0) {
+						if (d == 1)
+							ncnt += 3;
+						else
+							ncnt += 2;
+					} else if (cur.d == 1) {
+						if (d == 0)
+							ncnt += 3;
+						else
+							ncnt += 2;
+					} else if (cur.d == 2) {
+						if (d == 3)
+							ncnt += 3;
+						else
+							ncnt += 2;
+					} else {
+						if (d == 2)
+							ncnt += 3;
+						else
+							ncnt += 2;
+					}
+				}
+				q.add(new Point(ny, nx, d, ncnt));
+			}
+		}
+	}
+
+	static class Point {
+		int y, x, d, cnt;
+
+		public Point(int y, int x, int d, int cnt) {
+			super();
+			this.y = y;
+			this.x = x;
+			this.d = d;
+			this.cnt = cnt;
+		}
+
+	}
+
+}

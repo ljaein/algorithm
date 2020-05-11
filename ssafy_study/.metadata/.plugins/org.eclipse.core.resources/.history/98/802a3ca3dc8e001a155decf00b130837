@@ -1,0 +1,19 @@
+package todo;
+
+import java.util.Scanner;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		solution(n);
+
+	}
+
+	public static int solution(int n) {
+		int answer = 0;
+		System.out.println("Hello Java");
+		return answer;
+	}
+}

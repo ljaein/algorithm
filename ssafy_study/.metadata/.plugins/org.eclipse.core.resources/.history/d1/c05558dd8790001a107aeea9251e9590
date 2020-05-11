@@ -1,0 +1,14 @@
+
+public class test {
+
+	public static void main(String[] args) {
+		double disX = -30;
+		double disY = -10;
+		double angle = 360 + (Math.atan2(disX, disY) * 180) / Math.PI;
+		if(angle > 360)
+			angle -= 360;
+//		double angle = Math.toDegrees(Math.atan2(disX, disY));
+		System.out.println(angle);
+	}
+
+}

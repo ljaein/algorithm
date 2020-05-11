@@ -1,0 +1,30 @@
+package todo;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		String s = "try hello world ";
+		System.out.println(solution(s));
+
+	}
+
+	public static String solution(String s) {
+		String answer = "";
+		String[] alph = s.split("");
+		int cnt = 0;
+		for (int j = 0; j < alph.length; j++) {
+			if(alph[j]==" "){
+				cnt = 0;
+				answer += " ";
+				continue;
+			}
+			if (cnt % 2 == 0) {
+				answer += alph[j].toUpperCase();
+			} else {
+				answer += alph[j].toLowerCase();
+			}
+			cnt++;
+		}
+		return answer;
+	}
+}

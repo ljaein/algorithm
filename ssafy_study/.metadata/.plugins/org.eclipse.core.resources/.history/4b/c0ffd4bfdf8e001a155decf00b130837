@@ -1,0 +1,26 @@
+package todo;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		String s = "try hello world";
+		System.out.println(solution(s));
+
+	}
+
+	public static String solution(String s) {
+		String answer = "";
+		String[] alph = s.split("");
+		for (int j = 0; j < alph.length; j++) {
+			if (j % 2 == 0) {
+				answer += alph[j].toUpperCase();
+			} else {
+				answer += alph[j].toLowerCase();
+			}
+		}
+		if (i != word.length - 1)
+			answer += " ";
+
+		return answer;
+	}
+}

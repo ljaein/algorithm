@@ -1,0 +1,75 @@
+package study0501;
+
+import java.util.Iterator;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
+public class Main_6118_숨바꼭질 {
+
+	static int N, M;
+	static int[][] map;
+	static boolean[][] visit;
+	static PriorityQueue<Home> pq = new PriorityQueue<>();
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		M = sc.nextInt();
+		map = new int[N][N];
+		visit = new boolean[N][N];                                                           
+		for (int i = 0; i < M; i++) {
+			int A_i = sc.nextInt()-1;
+			int B_i = sc.nextInt()-1;
+			map[A_i][B_i] = 1;
+			map[B_i][A_i] = 1;
+		}
+		dfs(0, 1);
+		Iterator<Home> it = pq.iterator();
+		while(it.hasNext()){
+			System.out.println(it.next());
+		}
+	}
+
+	static void dfs(int v, int dis) {
+		for (int j = 0; j < N; j++) {
+			if (!visit[v][j] && map[v][j] == 1) {
+				pq.add(new Home(j, dis));
+				visit[v][j]=true;
+				visit[j][v]=true;
+				dfs(j, dis + 1);
+				visit[v][j]=false;
+				visit[j][v]=false;
+			}
+		}
+	}
+
+	static class Home implements Comparable<Home> {
+		int h, d;
+
+		public Home(int h, int d) {
+			super();
+			this.h = h;
+			this.d = d;
+		}
+
+		@Override
+		public String toString() {
+			return "Home [h=" + h + ", d=" + d + "]";
+		}
+
+		@Override
+		public int compareTo(Home o) {
+			if (this.d > o.d)
+				return -1;
+			else if (this.d < o.d)
+				return 1;
+			else {
+				if (this.h < o.h)
+					return -1;
+				else
+					return 1;
+			}
+		}
+
+	}
+}

@@ -10,7 +10,9 @@ import java.util.Stack;
 public class test {
 
 	public static void main(String[] args) {
-		System.out.println(11 & (1<<2));
+		char c = '2';
+		int ic = c - '0';
+		System.out.println(ic);
 	}
 
 }

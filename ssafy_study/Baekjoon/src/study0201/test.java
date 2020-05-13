@@ -10,9 +10,8 @@ import java.util.Stack;
 public class test {
 
 	public static void main(String[] args) {
-		char c = '2';
-		int ic = c - '0';
-		System.out.println(ic);
+		char c = 'A';
+		System.out.println((char)(c+32));
 	}
 
 }

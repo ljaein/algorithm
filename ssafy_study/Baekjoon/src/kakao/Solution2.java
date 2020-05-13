@@ -32,12 +32,6 @@ public class Solution2 {
 		LinkedList<Long> nlist = new LinkedList<>();
 		LinkedList<Character> olist = new LinkedList<>();
 		for (int i = 0; i < 6; i++) {
-//			LinkedList<Long> nlist = new LinkedList<>();
-//			LinkedList<Character> olist = new LinkedList<>();
-//			for(int li = 0; li<f_nlist.size();li++)
-//				nlist.add(f_nlist.get(li));
-//			for(int li = 0; li<f_olist.size();li++)
-//				olist.add(f_olist.get(li));
 			nlist = (LinkedList<Long>)f_nlist.clone();
 			olist = (LinkedList<Character>)f_olist.clone();
 			for (int j = 0; j < 3; j++) {

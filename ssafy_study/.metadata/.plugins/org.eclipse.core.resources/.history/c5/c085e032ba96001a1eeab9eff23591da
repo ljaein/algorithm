@@ -94,8 +94,7 @@ public class Main_1445_일요일아침의데이트 {
 					visit[ny][nx][1] = cur.next;
 					q.add(new Point(ny, nx, cur.g, cur.next));
 				} else if (map[ny][nx] == 1) {
-					if (visit[ny][nx][0] > cur.g + 1
-							|| (visit[ny][nx][0] == cur.g + 1 && visit[ny][nx][1] > cur.next)) {
+					if (visit[ny][nx][0] > cur.g + 1 || (visit[ny][nx][0] == cur.g + 1 && visit[ny][nx][1] > cur.next)) {
 						visit[ny][nx][0] = cur.g + 1;
 						visit[ny][nx][1] = cur.next;
 						q.add(new Point(ny, nx, cur.g + 1, cur.next));

@@ -1,0 +1,35 @@
+package study0601;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Main_1213_팰린드롬만들기 {
+
+	static char c;
+	public static void main(String[] args) throws IOException {
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        char[] c = br.readLine().toCharArray();
+//        int[] alph = new int[26];
+//        char[] res = new char[c.length];
+//        int idx= 0;
+//        Arrays.sort(c);
+//        for(int i=0;i<c.length;i++){
+//            alph[c[i]-'a']++;
+//        }
+//        char hol=0;
+//        for(int i=0;i<26;i++){
+//        	if(alph[i]%2==0){
+//        		int num = alph[i]/2;
+//        		for(int j=0;j<num;j++){
+//        			res[idx++] = (char)(i+'a');
+//        		}
+//        	}else{
+//        		hol = (char)(i+'a');
+//        	}
+//        }
+        System.out.println(c);
+        
+    }
+
+}

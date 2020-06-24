@@ -1,0 +1,114 @@
+package study0604;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main_19237_어른상어 {
+
+	static int N, M, k;
+	static Shark[][] map;
+	static Shark[][] info;
+	static int[][][] pd;
+	static Shark[] shark;
+	static int[] dy = { 0, -1, 1, 0, 0 };
+	static int[] dx = { 0, 0, 0, -1, 1 };
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		k = Integer.parseInt(st.nextToken());
+		map = new Shark[N][N];
+		info = new Shark[N][N];
+		shark = new Shark[M + 1];
+		pd = new int[M + 1][5][5];
+		for (int i = 0; i < N; i++) {
+			st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < N; j++) {
+				int num = Integer.parseInt(st.nextToken());
+				if (num != 0) {
+					shark[num] = new Shark(i, j, 0);
+					map[i][j] = shark[num];
+					info[i][j] = new Shark(num,k);
+				}
+			}
+		}
+		st = new StringTokenizer(br.readLine());
+		for (int i = 1; i <= M; i++) {
+			shark[i].d = Integer.parseInt(st.nextToken());
+		}
+		for (int i = 1; i <= M; i++) {
+			for (int j = 1; j <= 4; j++) {
+				st = new StringTokenizer(br.readLine());
+				for (int k = 0; k < 4; k++) {
+					pd[i][j][k] = Integer.parseInt(st.nextToken());
+				}
+			}
+		}
+		// 입력
+		move();
+
+	}
+
+	static void move() { //맵이동 아직 구현x
+		for (int m = 1; m < M + 1; m++) {
+			Shark cur = shark[m];
+			boolean allsm = false;
+			for (int d = 1; d <= 4; d++) {
+				int cpd = pd[m][cur.d][d]; // 현재 우선순위 d순위 방향
+				int ny = cur.y + dy[cpd];
+				int nx = cur.x + dx[cpd];
+				if (ny < 0 || nx < 0 || ny >= N || nx >= N){
+					if(d==4)
+						d=0;
+					continue;
+				}
+				if (!allsm) {
+					if (info[ny][nx] == null) { // 비어있으면
+						cur.y = ny;
+						cur.x = nx;
+						cur.d = cpd;
+					} else { // 안비어있는데
+						if (d == 4) { // 마지막 우선순위까지 안비어있으면 모두 차있다. 자기 냄새칸으로 가자
+							allsm = true;
+							d = 0;
+						}
+					}
+				}else{
+					if(info[ny][nx].n==cur.n){ //자기 냄새이면
+						cur.y = ny;
+						cur.x = nx;
+						cur.d = cpd;
+					}
+				}
+			}
+			
+		}
+	}
+
+	static class Shark {
+		int y, x, d;
+		int n,t;
+		public Shark(int y, int x,  int d) {
+			super();
+			this.y = y;
+			this.x = x;
+			this.d = d;
+		}
+		
+		public Shark(int n, int t){
+			this.n=n;
+			this.t=t;
+		}
+
+		@Override
+		public String toString() {
+			return "Shark [n=" + n + ", t=" + t + ", d=" + d + ", isin=" + isin + "]";
+		}
+
+	}
+
+}

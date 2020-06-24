@@ -1,0 +1,49 @@
+package study0604;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main_2933_미네랄 {
+
+	static int R, C, N;
+	static char[][] map;
+	static int[] floor;
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		R = Integer.parseInt(st.nextToken());
+		C = Integer.parseInt(st.nextToken());
+		map = new char[R][C];
+		for (int i = 0; i < R; i++) {
+			map[i] = br.readLine().toCharArray();
+		}
+		N = Integer.parseInt(br.readLine());
+		st = new StringTokenizer(br.readLine());
+		for (int i = 0; i < N; i++) {
+			floor[i] = Integer.parseInt(st.nextToken());
+		}
+		boolean isL = true;
+		for (int i = 0; i < N; i++) {
+			if (isL) {
+				for (int j = 0; j < C; j++) {
+					if (map[R - floor[i]][j] == 'x') {
+						map[R - floor[i]][j] = '.';
+						break;
+					}
+				}
+			} else {
+				for (int j = C - 1; j >= 0; j--) {
+					if (map[R - floor[i]][j] == 'x') {
+						map[R - floor[i]][j] = '.';
+						break;
+					}
+				}
+			}
+			isL = isL ? false : true;
+		}
+	}
+
+}

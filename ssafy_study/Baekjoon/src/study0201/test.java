@@ -11,16 +11,20 @@ import java.util.Stack;
 public class test {
 
 	public static void main(String[] args) {
-		Queue<Point> q = new LinkedList<>();
-		q.add(new Point(1));
-		q.add(new Point(3));
-		q.add(new Point(2));
-		while(!q.isEmpty()){
-			System.out.println(q.poll().a);
-		}
+		int[] arr = new int[3];
+		arr[2] = 1;
+		int [] a = arr;
+		a[2] = 2;
+		System.out.println(arr[2]);
+	}
+	static void ch(Point p){
+		p.a = 3;
+	}
+	static void cha(int a){
+		a = 3;
 	}
 
-	static class Point implements Comparable<Point>{
+	static class Point{
 		int a;
 
 		public Point(int a) {
@@ -28,10 +32,6 @@ public class test {
 			this.a = a;
 		}
 
-		@Override
-		public int compareTo(Point o) {
-			return this.a-o.a;
-		}
 		
 	}
 }

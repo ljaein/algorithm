@@ -109,7 +109,6 @@ public class Main_19235_모노미노도미노 {
 			return true;
 		} else
 			return false;
-
 	}
 
 	static boolean full(int[][] arr) {

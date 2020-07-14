@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+
 public class Main_19236_청소년상어 {
 
 	static int ans;
@@ -35,6 +36,7 @@ public class Main_19236_청소년상어 {
 		ffish[fmap[0][0]] = null;
 		fmap[0][0] = -1; // 상어는 -1, 빈칸은 0
 		move(ffish, fmap, fshark, num);
+		System.out.println(ans);
 
 	}
 
@@ -51,7 +53,6 @@ public class Main_19236_청소년상어 {
 		for (int f = 1; f < 17; f++) {
 			if (fish[f] == null)
 				continue;
-//			System.out.println("==현재" + f);
 			Fish cur = fish[f];
 			int nd = cur.d;
 			for (int d = 0; d < 8; d++) {
@@ -83,12 +84,14 @@ public class Main_19236_청소년상어 {
 				}
 			}
 		} // 물고기들 이동
-		print(map, fish);
 		for (int d = 1; d <= 3; d++) {
 			Fish[] fish2 = new Fish[17];
 			int[][] map2 = new int[4][4];
 			int[][] shark2 = new int[1][3];
-			System.arraycopy(fish, 0, fish2, 0, 17);
+			for (int i = 1; i < 17; i++){
+				if(fish[i]!=null)
+				fish2[i] = new Fish(fish[i].n,fish[i].y, fish[i].x, fish[i].d);
+			}
 			for (int i = 0; i < 4; i++)
 				System.arraycopy(map[i], 0, map2[i], 0, 4);
 			System.arraycopy(shark[0], 0, shark2[0], 0, 3);
@@ -106,28 +109,9 @@ public class Main_19236_청소년상어 {
 			shark2[0][2] = fish2[map2[ny][nx]].d;
 			fish2[map2[ny][nx]] = null;
 			map2[ny][nx] = -1;
-			System.out.println("상어");
-			print(map2,fish2);
 			move(fish2, map2, shark2, sum + num);
 		}
 
-	}
-
-	static void print(int[][] map, Fish[] fish) {
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
-				System.out.print(map[i][j] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();
-
-		for (int i = 0; i < 17; i++) {
-			if (fish[i] != null) {
-				System.out.print(i + ":" + fish[i].d + " ");
-			}
-		}
-		System.out.println();
 	}
 
 	static class Fish {

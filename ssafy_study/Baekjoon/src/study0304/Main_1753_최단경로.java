@@ -1,10 +1,14 @@
 package study0304;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Main_1753_최단경로 {
 
@@ -13,18 +17,24 @@ public class Main_1753_최단경로 {
 	static int[] dist;
 	static StringBuilder sb = new StringBuilder();
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
-		V = sc.nextInt();
-		E = sc.nextInt();
-		K = sc.nextInt() - 1;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		V = Integer.parseInt(st.nextToken());
+		E = Integer.parseInt(st.nextToken());
+		K = Integer.parseInt(br.readLine()) - 1;
 		list = new LinkedList[V];
 		dist = new int[V];
 		for (int i = 0; i < V; i++) {
 			list[i] = new LinkedList<>();
 		}
 		for (int i = 0; i < E; i++) {
-			list[sc.nextInt() - 1].add(new Ver(sc.nextInt() - 1, sc.nextInt()));
+			st = new StringTokenizer(br.readLine());
+			int s = Integer.parseInt(st.nextToken())-1;
+			int e = Integer.parseInt(st.nextToken())-1;
+			int w = Integer.parseInt(st.nextToken());
+			list[s].add(new Ver(e, w));
 		}
 		Arrays.fill(dist, Integer.MAX_VALUE);
 		PriorityQueue<Ver> pq = new PriorityQueue<>();

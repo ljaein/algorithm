@@ -13,25 +13,12 @@ public class test {
 	public static void main(String[] args) {
 		int[] arr = new int[3];
 		arr[2] = 1;
-		int [] a = arr;
-		a[2] = 2;
+		abc(arr);
 		System.out.println(arr[2]);
 	}
-	static void ch(Point p){
-		p.a = 3;
-	}
-	static void cha(int a){
-		a = 3;
+	
+	static void abc(int[] ar){
+		ar[2]=2;
 	}
 
-	static class Point{
-		int a;
-
-		public Point(int a) {
-			super();
-			this.a = a;
-		}
-
-		
-	}
 }

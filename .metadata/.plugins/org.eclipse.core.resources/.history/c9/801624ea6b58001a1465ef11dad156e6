@@ -1,0 +1,44 @@
+package study0204;
+
+import java.util.Scanner;
+
+public class Main_2630_색종이만들기 {
+
+	static int N, cnt;
+	static int[][] map;
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		map = new int[N][N];
+		cnt=1;
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				map[i][j] = sc.nextInt();
+			}
+		}
+		divide(0,0,N);
+		System.out.println(cnt);
+
+	}
+
+	public static void divide(int y, int x, int n) {
+		boolean chk = false;
+		System.out.println(y+" "+x);
+		int cur = map[y][x];
+		for (int i = y; i < y + n; i++) {
+			for (int j = x; j < x + n; j++) {
+				if (cur != map[i][j]) {
+					chk = true;
+					divide(y, x, n / 2);
+					divide(y, x + n / 2, n / 2);
+					divide(y + n / 2, x, n / 2);
+					divide(y + n / 2, x + n / 2, n / 2);
+				}
+			}
+		}
+		if(!chk)
+			System.out.println("in");
+	}
+
+}

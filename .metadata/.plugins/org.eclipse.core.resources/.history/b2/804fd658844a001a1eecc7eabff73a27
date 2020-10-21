@@ -1,0 +1,21 @@
+package study0201;
+
+import java.util.Scanner;
+
+public class Solution_D3_1206_View {
+
+	static int N, res;
+	static int[] bd;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		bd = new int[N];
+		for(int i=2;i<N-2;i++){
+			if(bd[i]-bd[i-1]>=2 && bd[i]-bd[i+1]>=2){
+				res++;
+			}
+		}
+		System.out.println(res);
+	}
+
+}

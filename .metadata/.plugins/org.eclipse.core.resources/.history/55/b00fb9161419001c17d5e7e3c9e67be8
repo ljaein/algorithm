@@ -1,0 +1,29 @@
+package study_2021_09;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main_9549_암호화된비밀번호 {
+	static int T;
+	static int[] alpha;
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		T = Integer.parseInt(br.readLine());
+		for(int t=0;t<T;t++){
+			alpha = new int[26];
+			char[] nword = br.readLine().toCharArray();
+			char[] ori = br.readLine().toCharArray();
+			for(int i=0;i<ori.length;i++){
+				alpha[ori[i]-'a']++;
+			}
+			System.out.println(alpha.toString());
+		break;
+		}
+		StringTokenizer st = new StringTokenizer(br.readLine());
+	}
+
+}

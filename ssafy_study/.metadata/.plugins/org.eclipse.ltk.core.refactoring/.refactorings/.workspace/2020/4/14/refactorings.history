@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete resource &apos;ct01hw_대전_06_이재인&apos;" deleteContents="true" description="Delete resource &apos;ct01hw_대전_06_이재인&apos;" element1="/ct01hw_대전_06_이재인" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1585823857548"/>
-</session>

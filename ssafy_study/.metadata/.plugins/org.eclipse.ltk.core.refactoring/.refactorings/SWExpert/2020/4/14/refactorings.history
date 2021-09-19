@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;Solution_D3_5607_조합.java&apos; to &apos;ct01hw_대전_06_이재인/src&apos;&#x0D;&#x0A;- Original project: &apos;SWExpert&apos;&#x0D;&#x0A;- Destination element: &apos;ct01hw_대전_06_이재인/src&apos;&#x0D;&#x0A;- Original element: &apos;study0401.Solution_D3_5607_조합.java&apos;" description="Copy compilation unit" destination="=ct01hw_대전_06_이재인/src" element1="/src&lt;study0401{Solution_D3_5607_조합.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1585823660193" units="1" version="1.0"/>
-</session>

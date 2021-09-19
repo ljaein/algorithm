@@ -1,0 +1,39 @@
+package study.hw;
+
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+import study.hw.Main_4485_≥Ïªˆø ¿‘¿∫æ÷∞°¡©¥Ÿ¡ˆ.Point;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		PriorityQueue<Point> pq = new PriorityQueue<>(new C());
+		pq.add(new Point(1, 2, 5));
+		pq.add(new Point(2, 3, 1));
+		System.out.println(pq.poll().n);
+	}
+	public static class C implements Comparator<Point>{
+
+		@Override
+		public int compare(Point o1, Point o2) {
+			// TODO Auto-generated method stub
+			if(o1.n>o2.n){
+				return 1;
+			}else
+				return -1;
+		}
+		
+	}
+	static class Point {
+		int y, x, n;
+
+		public Point(int y, int x, int n) {
+			this.y = y;
+			this.x = x;
+			this.n = n;
+		}
+		
+	}
+}

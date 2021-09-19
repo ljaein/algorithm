@@ -1,0 +1,76 @@
+package study0502;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.StringTokenizer;
+
+public class Main_17143_낚시왕 {
+
+	static int R, C, M, ans;
+	static LinkedList<Shark> list;
+	static int[] dy = { 0, -1, 1, 0, 0 };
+	static int[] dx = { 0, 0, 0, 1, -1 };
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		R = Integer.parseInt(st.nextToken());
+		C = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		list = new LinkedList<Shark>();
+		for (int i = 0; i < M; i++) {
+			st = new StringTokenizer(br.readLine());
+			int r = Integer.parseInt(st.nextToken());
+			int c = Integer.parseInt(st.nextToken());
+			int s = Integer.parseInt(st.nextToken());
+			int d = Integer.parseInt(st.nextToken());
+			int z = Integer.parseInt(st.nextToken());
+			list.add(new Shark(r, c, s, d, z));
+		}
+
+	}
+
+	static void fishing() {
+		int col = 0;
+
+		col++;
+		int min = Integer.MAX_VALUE;
+		int eat = 0;
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).c == col) {
+				if (list.get(i).r < min) {
+					min = list.get(i).r;
+					eat = i;
+				}
+			}
+		}
+		ans += list.get(eat).z;
+		list.remove(eat);
+		for (int i = 0; i < list.size(); i++) {
+			Shark cur = list.get(i);
+			if (cur.d == 1 || cur.d == 2) {
+				int move = cur.r + dy[cur.d] * cur.s;
+				if (move > R)
+					cur.r = R - (move - R);
+				else if (move < 1)
+					cur.r = 1 + (1 - move);
+			}
+		}
+	}
+
+	static class Shark {
+		int r, c, s, d, z;
+
+		public Shark(int r, int c, int s, int d, int z) {
+			super();
+			this.r = r;
+			this.c = c;
+			this.s = s;
+			this.d = d;
+			this.z = z;
+		}
+
+	}
+}

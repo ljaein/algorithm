@@ -1,0 +1,54 @@
+package study_2021_09;
+
+import java.util.*;
+class kakao인턴_2021_표편집 {
+    public String solution(int n, int k, String[] cmd) {
+        String answer = "";
+        char[] names = new char[n];
+        for(int i=0;i<n;i++)
+            names[i] = 'O';
+        int cur = k;
+        Stack<Integer> stack = new Stack<>();
+        for(int i=0;i<cmd.length;i++){
+            String cmds = cmd[i];
+            if(cmds.charAt(0)=='D'){
+                int down = Integer.parseInt(cmds.substring(2));
+                int cnt = 0;
+                while(cnt!=down){
+                    cur++;
+                    if(names[cur]=='X')
+                        continue;
+                    cnt++;
+                }
+            }else if(cmds.charAt(0)=='U'){
+                int up = Integer.parseInt(cmds.substring(2));
+                int cnt = 0;
+                while(cnt!=up){
+                    cur--;
+                    if(names[cur]=='X')
+                        continue;
+                    cnt++;
+                }
+            }else if(cmds.charAt(0)=='C'){
+                names[cur] = 'X';
+                stack.add(cur);
+                int d = 1 ;
+                while(true){
+                    if(cur == n-1){
+                        d = -1;
+                    }
+                    cur += d;
+                    if(names[cur]=='X')
+                        continue;
+                    else
+                        break;
+                }
+            }else if(cmds.charAt(0) =='Z'){
+                int del = stack.pop();
+                names[del]='O';
+            }
+        }
+        answer = String.valueOf(names);
+        return answer;
+    }
+}

@@ -1,0 +1,12 @@
+package study_2021_09;
+
+public class BitMaskTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int bit = 0;
+		System.out.println(bit | 1<<2);
+		
+	}
+
+}
